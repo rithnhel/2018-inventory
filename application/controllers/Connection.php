@@ -39,7 +39,7 @@ class Connection extends CI_Controller {
 					redirect($this->session->userdata('last_page'));
 				} else {
 					log_message('debug', 'Not last_page set. Redirect to the home page');
-					redirect('welcome');
+					redirect('users');
 				}
 			} else {
 				log_message('error', 'Invalid credentials for user ' . $this->input->post('login'));
@@ -58,6 +58,6 @@ class Connection extends CI_Controller {
 		//Add comment to the file connection 
 		log_message('debug', 'Logout current user and redirect to the home page');
 		$this->session->sess_destroy();
-		redirect('welcome');
+		redirect('connection/login');
 	}
 }
