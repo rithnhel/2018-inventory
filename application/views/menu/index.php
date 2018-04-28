@@ -20,11 +20,11 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
       <li class="nav-item <?php echo ($activeLink=='examples'?'active':'');?>">
         <a class="nav-link" href="<?php echo base_url();?>examples/views/index">Material</a>
       </li>
-      <li class="nav-item <?php echo ($activeLink=='users'?'active':'');?>">
-        <a class="nav-link" href="<?php echo base_url();?>users"><i class="mdi mdi-lock"></i>Users</a>
-      </li>
-      <div class="navbar dropdown <?php echo ($activeLink=='others'?'active':'');?>" >
-        <li class="dropdown-toggle " data-toggle="dropdown">
+     <!--  <li class="nav-item <?php //echo ($activeLink=='users'?'active':'');?>">
+        <a class="nav-link" href="<?php //echo base_url();?>users"><i class="mdi mdi-lock"></i>Users</a>
+      </li> -->
+      <div class="nav-link navbar dropdown <?php echo ($activeLink=='others'?'active':'');?>" >
+        <li class=" dropdown-toggle " data-toggle="dropdown">
           Others
           <li class="dropdown-menu">
             <a class="dropdown-item" href="<?php echo base_url();?>departments">Department</a>
@@ -32,6 +32,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
             <a class="dropdown-item" href="<?php echo base_url();?>location">Location</a>
             <a class="dropdown-item" href="<?php echo base_url();?>model">Model</a>
             <a class="dropdown-item" href="<?php echo base_url();?>owner">Owner</a>
+            <a class="dropdown-item" href="<?php echo base_url();?>users">Users</a>
           </li>
         </li>
       </div>

@@ -33,7 +33,7 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
   }
   .menu {
     position: relative;
-    left: 43%;
+    left: 48%;
   }
   .form {
     position: relative;
