@@ -25,16 +25,16 @@ class Users extends CI_Controller {
         $this->session->set_userdata('last_page', $this->uri->uri_string());
         if($this->session->loggedIn === TRUE) {
            // Allowed methods
-           if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+         if ($this->session->isAdmin || $this->session->isSuperAdmin) {
              //User management is reserved to admins and super admins
-           } else {
-             redirect('errors/privileges');
-           }
          } else {
-           redirect('connection/login');
-         }
-        $this->load->model('users_model');
-    }
+           redirect('errors/privileges');
+       }
+   } else {
+     redirect('connection/login');
+ }
+ $this->load->model('users_model');
+}
 
     /**
      * Display the list of all users
@@ -152,7 +152,7 @@ class Users extends CI_Controller {
         if (empty($data['users_item'])) {
           log_message('debug', '{controllers/users/reset} user not found');
           redirect('notfound');
-        } else {
+      } else {
           log_message('debug', 'Reset the password of user #' . $id);
           $this->users_model->resetPassword($id, $this->input->post('password'));
 
@@ -181,22 +181,22 @@ class Users extends CI_Controller {
             $this->email->send(FALSE);
             $debug = $this->email->print_debugger(array('headers'));
             log_message('debug', 'print_debugger = ' . $debug);
-          } else {
+        } else {
             $this->email->send();
-          }
+        }
 
           //Inform back the user by flash message
-          $this->session->set_flashdata('msg', 'The password was successfully reset');
-          if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+        $this->session->set_flashdata('msg', 'The password was successfully reset');
+        if ($this->session->isAdmin || $this->session->isSuperAdmin) {
             log_message('debug', 'Redirect to list of users page');
             redirect('users');
-          }
-          else {
+        }
+        else {
             log_message('debug', 'Redirect to homepage');
             redirect('home');
-          }
         }
     }
+}
 
     /**
      * Display the form / action Create a new user
@@ -238,29 +238,29 @@ class Users extends CI_Controller {
             if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
                 $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
             } else {
-               $this->email->from('do.not@reply.me', 'Skeleton app');
-            }
-            $this->email->to($this->input->post('email'));
-            if ($this->config->item('subject_prefix') != FALSE) {
-                $subject = $this->config->item('subject_prefix');
-            } else {
-               $subject = '[Skeleton] ';
-            }
-            $this->email->subject($subject . 'Your account is created');
-            $this->email->message($message);
-            log_message('debug', 'Sending the user creation email');
-            if ($this->config->item('log_threshold') > 1) {
-              $this->email->send(FALSE);
-              $debug = $this->email->print_debugger(array('headers'));
-              log_message('debug', 'print_debugger = ' . $debug);
-            } else {
-              $this->email->send();
-            }
+             $this->email->from('do.not@reply.me', 'Skeleton app');
+         }
+         $this->email->to($this->input->post('email'));
+         if ($this->config->item('subject_prefix') != FALSE) {
+            $subject = $this->config->item('subject_prefix');
+        } else {
+         $subject = '[Skeleton] ';
+     }
+     $this->email->subject($subject . 'Your account is created');
+     $this->email->message($message);
+     log_message('debug', 'Sending the user creation email');
+     if ($this->config->item('log_threshold') > 1) {
+      $this->email->send(FALSE);
+      $debug = $this->email->print_debugger(array('headers'));
+      log_message('debug', 'print_debugger = ' . $debug);
+  } else {
+      $this->email->send();
+  }
 
-            $this->session->set_flashdata('msg', 'The user was successfully created');
-            redirect('users');
-        }
-    }
+  $this->session->set_flashdata('msg', 'The user was successfully created');
+  redirect('users');
+}
+}
 
     /**
      * Form validation callback : prevent from login duplication
