@@ -8,7 +8,7 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
 <head>
 	<meta charset="utf-8">
 	<title><?php echo $title; ?></title>
-  <link rel="shortcut icon" href="<?php echo base_url();?>favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo base_url();?>assets/images/logo-img/file-icon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap-4.0.0/css/bootstrap.min.css">
   <link href="<?php echo base_url();?>assets/MDI-2.1.19/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 
@@ -20,10 +20,31 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
   <script src="<?php echo base_url();?>assets/js/popper-1.12.9..min.js"></script>
   <script src="<?php echo base_url();?>assets/bootstrap-4.0.0/js/bootstrap.min.js"></script>
 
-	<style type="text/css">
-  body {
-      padding-top: 60px;
+  <style type="text/css">
+  * {
+    font-family: verdana;
+    font-size: 15px;
   }
-	</style>
+  body {
+    padding-top: 60px;
+  }
+  #logo-menu {
+    max-width: 130px;
+  }
+  .menu {
+    position: relative;
+    left: 43%;
+  }
+  .form {
+    position: relative;
+    left: 53px;
+  }
+  /*.body-login {
+    background-image: url('<?php echo base_url()?>assets/images/logo-img/bg-in.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+    }*/
+  </style>
 </head>
-<body>
+<body class="body-login">
