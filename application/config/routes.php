@@ -79,6 +79,6 @@ $route['errors/privileges'] = 'errors/privileges';
 $route['errors/notfound'] = 'errors/notfound';
 
 //System
-$route['default_controller'] = 'welcome';
+$route['default_controller'] = 'connection/login';
 $route['404_override'] = 'errors/notfound';
 $route['translate_uri_dashes'] = FALSE;
