@@ -11,8 +11,8 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
 
   <div class="collapse navbar-collapse menu" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item <?php echo ($activeLink=='home'?'active':'');?>">
-        <a class="nav-link" href="<?php echo base_url();?>welcome">Home</a>
+      <li class="nav-item <?php echo ($activeLink=='item'?'active':'');?>">
+        <a class="nav-link" href="<?php echo base_url();?>items">Home</a>
       </li>
       <li class="nav-item <?php echo ($activeLink=='category'?'active':'');?>">
         <a class="nav-link" href="<?php echo base_url();?>category">Category</a>
