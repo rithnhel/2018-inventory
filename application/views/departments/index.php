@@ -43,20 +43,20 @@
     <!-- create new department -->
     <div class="row-fluid">
       <div class="col-12">
-         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-             <i class="mdi mdi-plus-circle"></i>&nbsp;Create new department
-         </button>
-         <!-- The Modal -->
-         <div class="modal fade" id="myModal">
-             <div class="modal-dialog modal-dialog-centered">
-               <div class="modal-content">
-                 <!-- Modal Header -->
-                 <div class="modal-header">
-                   <h4 class="modal-title">Create new department</h4>
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-               </div>          
-               <!-- Modal body -->
-               <div class="modal-body ">
+       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+           <i class="mdi mdi-plus-circle"></i>&nbsp;Create new department
+       </button>
+       <!-- The Modal -->
+       <div class="modal fade" id="myModal">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Create new department</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>          
+             <!-- Modal body -->
+             <div class="modal-body ">
                 <div class="form-inline">
                   <label class="control-label" for="firstname">Department</label>&nbsp;
                   <input type="text" class="form-control" name="firstname" id="firstname" required />
@@ -64,11 +64,11 @@
           </div> 
           <!-- Modal footer -->
           <div class="modal-footer">
-           <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
-           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-       </div>
-   </div>
-</div>
+             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
 </div>
 </div>
 </div>

@@ -22,7 +22,7 @@
 
       <div class="form-group">
         <label class="control-label" for="itemname">Name</label>
-        <input type="text" class="form-control" name="itemname" id="itemname" required />
+        <input type="text" class="form-control" name="itemname" id="itemname" placeholder="Enter Item name" required />
       </div>
       <div class="row">
         <div class="col-8">
@@ -31,7 +31,7 @@
             <div class="input-group mb-3">
               <input id="category" type="text" class="form-control" placeholder="Air condictioner" aria-label="category" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button id="categories" class="btn btn-outline-primary" type="button">Select</button>
+                <button id="categories" class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#selectCategory">Select</button>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
             <div class="input-group mb-3">
               <input id="material" type="text" class="form-control" placeholder="Iron" aria-label="material" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button id="materials" class="btn btn-outline-primary" type="button">Select</button>
+                <button id="materials" class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#selectMaterial">Select</button>
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
             <div class="input-group mb-3">
               <input id="department" type="text" class="form-control" placeholder="Admin/Finance" aria-label="department" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button id="departments" class="btn btn-outline-primary" type="button">Select</button>
+                <button id="departments" class="btn btn-outline-primary" type="button"  data-toggle="modal" data-target="#selectDepartment">Select</button>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
             <div class="input-group mb-3">
               <input id="location" type="text" class="form-control" placeholder="A10" aria-label="location" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button id="locations" class="btn btn-outline-primary" type="button">Select</button>
+                <button id="locations" class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#selectLocation">Select</button>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@
             <div class="input-group mb-3">
               <input id="user" type="text" class="form-control" placeholder="Benjamin BALET" aria-label="user" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button id="users" class="btn btn-outline-primary" type="button">Select</button>
+                <button id="users" class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#selectUser">Select</button>
               </div>
             </div>
           </div>
@@ -76,7 +76,7 @@
             <div class="input-group mb-3">
               <input id="owner" type="text" class="form-control" placeholder="PNC" aria-label="owner" aria-describedby="basic-addon2">
               <div class="input-group-append">
-                <button id="owners" class="btn btn-outline-primary" type="button">Select</button>
+                <button id="owners" class="btn btn-outline-primary" type="button" data-toggle="modal" data-target="#selectOwner">Select</button>
               </div>
             </div>
           </div>
@@ -98,6 +98,193 @@
 </div>
 
 <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+
+ <!-- select the category -->
+    <div class="row-fluid">
+      <div class="col-12">
+       <!-- The Modal -->
+       <div class="modal fade" id="selectCategory">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Create new department</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>          
+             <!-- Modal body -->
+             <div class="modal-body ">
+                <div class="form-inline">
+                  <label class="control-label" for="firstname">Category</label>&nbsp;
+                  <input type="text" class="form-control" name="firstname" id="firstname" required />
+              </div>  
+          </div> 
+          <!-- Modal footer -->
+          <div class="modal-footer">
+             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
+ <!-- select the material -->
+    <div class="row-fluid">
+      <div class="col-12">
+       <!-- The Modal -->
+       <div class="modal fade" id="selectMaterial">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Create new department</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>          
+             <!-- Modal body -->
+             <div class="modal-body ">
+                <div class="form-inline">
+                  <label class="control-label" for="firstname">Material</label>&nbsp;
+                  <input type="text" class="form-control" name="firstname" id="firstname" required />
+              </div>  
+          </div> 
+          <!-- Modal footer -->
+          <div class="modal-footer">
+             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
+
+ <!-- select the Department -->
+    <div class="row-fluid">
+      <div class="col-12">
+       <!-- The Modal -->
+       <div class="modal fade" id="selectDepartment">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Create new department</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>          
+             <!-- Modal body -->
+             <div class="modal-body ">
+                <div class="form-inline">
+                  <label class="control-label" for="firstname">Department</label>&nbsp;
+                  <input type="text" class="form-control" name="firstname" id="firstname" required />
+              </div>  
+          </div> 
+          <!-- Modal footer -->
+          <div class="modal-footer">
+             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
+
+
+ <!-- select the location -->
+    <div class="row-fluid">
+      <div class="col-12">
+       <!-- The Modal -->
+       <div class="modal fade" id="selectLocation">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Create new department</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>          
+             <!-- Modal body -->
+             <div class="modal-body ">
+                <div class="form-inline">
+                  <label class="control-label" for="firstname">Location</label>&nbsp;
+                  <input type="text" class="form-control" name="firstname" id="firstname" required />
+              </div>  
+          </div> 
+          <!-- Modal footer -->
+          <div class="modal-footer">
+             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
+
+
+ <!-- select the user -->
+    <div class="row-fluid">
+      <div class="col-12">
+       <!-- The Modal -->
+       <div class="modal fade" id="selectUser">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Create new department</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>          
+             <!-- Modal body -->
+             <div class="modal-body ">
+                <div class="form-inline">
+                  <label class="control-label" for="firstname">user</label>&nbsp;
+                  <input type="text" class="form-control" name="firstname" id="firstname" required />
+              </div>  
+          </div> 
+          <!-- Modal footer -->
+          <div class="modal-footer">
+             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
+
+ <!-- select the user -->
+    <div class="row-fluid">
+      <div class="col-12">
+       <!-- The Modal -->
+       <div class="modal fade" id="selectOwner">
+           <div class="modal-dialog modal-dialog-centered">
+             <div class="modal-content">
+               <!-- Modal Header -->
+               <div class="modal-header">
+                 <h4 class="modal-title">Create new department</h4>
+                 <button type="button" class="close" data-dismiss="modal">&times;</button>
+             </div>          
+             <!-- Modal body -->
+             <div class="modal-body ">
+                <div class="form-inline">
+                  <label class="control-label" for="firstname">owner</label>&nbsp;
+                  <input type="text" class="form-control" name="firstname" id="firstname" required />
+              </div>  
+          </div> 
+          <!-- Modal footer -->
+          <div class="modal-footer">
+             <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</div>
+
 
 <div class="row-fluid">
   <div class="col-12">
@@ -149,63 +336,5 @@
               });
             }
           });
-      $('#categories').click(function() {
-        bootbox.prompt({
-          title: "Please enter your age",
-          inputType: 'text',
-          callback: function (result) {
-            $('#category').val(result);
-          }
-        });
-      });
-
-      $('#materials').click(function() {
-        bootbox.prompt({
-          title: "Please enter your age",
-          inputType: 'text',
-          callback: function (result) {
-            $('#material').val(result);
-          }
-        });
-      });
-
-      $('#departments').click(function() {
-        bootbox.prompt({
-          title: "Please enter your age",
-          inputType: 'text',
-          callback: function (result) {
-            $('#department').val(result);
-          }
-        });
-      });
-
-      $('#locations').click(function() {
-        bootbox.prompt({
-          title: "Please enter your age",
-          inputType: 'text',
-          callback: function (result) {
-            $('#location').val(result);
-          }
-        });
-      });
-
-      $('#users').click(function() {
-        bootbox.prompt({
-          title: "Please enter your age",
-          inputType: 'text',
-          callback: function (result) {
-            $('#user').val(result);
-          }
-        });
-      });
-      $('#owners').click(function() {
-        bootbox.prompt({
-          title: "Please enter your age",
-          inputType: 'text',
-          callback: function (result) {
-            $('#owner').val(result);
-          }
-        });
-      });
 
     </script>
