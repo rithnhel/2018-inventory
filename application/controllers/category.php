@@ -13,7 +13,7 @@ if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
  * This controller serves the user management pages and tools.
  * The difference with HR Controller is that operations are technical (CRUD, etc.).
  */
-class Users extends CI_Controller {
+class category extends CI_Controller {
 
     /**
      * Default constructor
@@ -43,12 +43,12 @@ class Users extends CI_Controller {
     public function index() {
         $this->load->helper('form');
         $data['users'] = $this->users_model->getUsersAndRoles();
-        $data['title'] = 'List of users';
-        $data['activeLink'] = 'others';
+        $data['title'] = 'List of categories';
+        $data['activeLink'] = 'category';
         $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
         $this->load->view('templates/header', $data);
         $this->load->view('menu/index', $data);
-        $this->load->view('users/index', $data);
+        $this->load->view('category/index', $data);
         $this->load->view('templates/footer', $data);
     }
 

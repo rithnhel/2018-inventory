@@ -23,10 +23,10 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
      <!--  <li class="nav-item <?php //echo ($activeLink=='users'?'active':'');?>">
         <a class="nav-link" href="<?php //echo base_url();?>users"><i class="mdi mdi-lock"></i>Users</a>
       </li> -->
-      <div class="nav-link navbar dropdown <?php echo ($activeLink=='others'?'active':'');?>" >
-        <li class=" dropdown-toggle " data-toggle="dropdown">
+      <div class="nav-link navbar dropdown <?php echo ($activeLink=='others'?'active':'');?>">
+        <li class="nav-item dropdown-toggle " data-toggle="dropdown">
           Others
-          <li class="dropdown-menu">
+          <li class="nav-item dropdown-menu">
             <a class="dropdown-item" href="<?php echo base_url();?>departments">Department</a>
             <a class="dropdown-item" href="<?php echo base_url();?>brand">Brand</a>
             <a class="dropdown-item" href="<?php echo base_url();?>location">Location</a>
