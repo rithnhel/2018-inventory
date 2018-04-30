@@ -40,6 +40,7 @@
     </div>
 </div>
   <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
+  
 <!-- create new department -->
   <div class="row-fluid">
       <div class="col-12">
@@ -72,6 +73,7 @@
          </div>
   </div>
 </div>
+
 <!-- delete  -->
 <div id="frmConfirmDelete" class="modal hide fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -92,6 +94,7 @@
         </div>
     </div>
 </div>
+
 <!-- edit -->
 <div id="frmConfirmEdit" class="modal hide fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
