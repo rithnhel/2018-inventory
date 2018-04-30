@@ -138,12 +138,5 @@ $(document).ready(function() {
 				$("#lnkDeleteUser").attr('href', link);
         $('#frmConfirmEdit').modal('show');
     });
-
-		$("#users tbody").on('click', '.reset-password',  function(){
-        var id = $(this).parent().data('id');
-				var link = "<?php echo base_url();?>users/reset/" + id;
-				$("#formResetPwd").prop("action", link);
-        $('#frmResetPwd').modal('show');
-    });
 });
 </script>
