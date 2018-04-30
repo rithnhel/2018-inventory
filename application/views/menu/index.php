@@ -12,7 +12,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
   <div class="collapse navbar-collapse menu" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item <?php echo ($activeLink=='items'?'active':'');?>">
-        <a class="nav-link" href="<?php echo base_url();?>items">Home</a>
+        <a class="nav-link" href="<?php echo base_url();?>items">Items</a>
       </li>
       <li class="nav-item <?php echo ($activeLink=='category'?'active':'');?>">
         <a class="nav-link" href="<?php echo base_url();?>category">Category</a>
@@ -32,7 +32,8 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
             <a class="dropdown-item" href="<?php echo base_url();?>location">Location</a>
             <a class="dropdown-item" href="<?php echo base_url();?>model">Model</a>
             <a class="dropdown-item" href="<?php echo base_url();?>owner">Owner</a>
-            <a class="dropdown-item" href="<?php echo base_url();?>users">Users</a>
+            <a class="dropdown-item" href="<?php echo base_url();?>users">Admin</a>
+            <a class="dropdown-item" href="<?php echo base_url();?>users">Report</a>
           </li>
         </li>
       </div>
