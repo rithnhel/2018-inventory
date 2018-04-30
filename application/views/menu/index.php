@@ -17,12 +17,9 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
       <li class="nav-item <?php echo ($activeLink=='category'?'active':'');?>">
         <a class="nav-link" href="<?php echo base_url();?>category">Category</a>
       </li>
-      <li class="nav-item <?php echo ($activeLink=='examples'?'active':'');?>">
+      <li class="nav-item <?php echo ($activeLink=='materials'?'active':'');?>">
         <a class="nav-link" href="<?php echo base_url();?>materials">Material</a>
       </li>
-     <!--  <li class="nav-item <?php //echo ($activeLink=='users'?'active':'');?>">
-        <a class="nav-link" href="<?php //echo base_url();?>users"><i class="mdi mdi-lock"></i>Users</a>
-      </li> -->
       <div class="nav-link navbar dropdown <?php echo ($activeLink=='others'?'active':'');?>">
         <li class="nav-item dropdown-toggle " data-toggle="dropdown">
           Others
