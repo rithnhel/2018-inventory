@@ -44,7 +44,7 @@ class Departments extends CI_Controller {
         $this->load->helper('form');
         $data['users'] = $this->users_model->getUsersAndRoles();
         $data['title'] = 'List of departments';
-        $data['activeLink'] = 'departments';
+        $data['activeLink'] = 'others';
         $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
         $this->load->view('templates/header', $data);
         $this->load->view('menu/index', $data);
