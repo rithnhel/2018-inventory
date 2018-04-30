@@ -83,7 +83,7 @@
         </div>
         <div class="col-4">
           <div class="form-group">
-            <label for="sel1">Select list:</label>
+            <label for="sel1">Condiction:</label>
             <select class="form-control" id="sel1">
               <option>News</option>
               <option>Fair</option>

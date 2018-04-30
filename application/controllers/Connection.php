@@ -39,7 +39,7 @@ class Connection extends CI_Controller {
 					redirect($this->session->userdata('last_page'));
 				} else {
 					log_message('debug', 'Not last_page set. Redirect to the home page');
-					redirect('users');
+					redirect('items');
 				}
 			} else {
 				log_message('error', 'Invalid credentials for user ' . $this->input->post('login'));
