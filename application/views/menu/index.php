@@ -17,7 +17,7 @@ $activeLink = (isset($activeLink)) ? $activeLink :  "";?>
         </li>     
         <div class="nav-link navbar dropdown <?php echo ($activeLink=='others'?'active':'');?> ">
             <li class="nav-item dropdown-toggle " data-toggle="dropdown">
-                Setting
+                Setting  
                 <li class="nav-item dropdown-menu">
                     <a class="dropdown-item" href="<?php echo base_url();?>category">Categories</a>
                     <a class="dropdown-item" href="<?php echo base_url();?>materials">Materials</a>
