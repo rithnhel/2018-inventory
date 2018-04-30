@@ -1,10 +1,6 @@
 <?php
 /**
- * This controller serves the user management pages and tools.
- * @copyright  Copyright (c) 2014-2017 Benjamin BALET
- * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
- * @link       https://github.com/bbalet/skeleton
- * @since      0.1.0
+*edit by bunla.rath
  */
 
 if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
@@ -65,24 +61,6 @@ class materials extends CI_Controller {
     }
 
     /**
-     * Enable a user
-     * @param int $id User identifier
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function enable($id) {
-        $this->active($id, TRUE);
-    }
-
-    /**
-     * Disable a user
-     * @param int $id User identifier
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function disable($id) {
-        $this->active($id, FALSE);
-    }
-
-    /**
      * Display a for that allows updating a given user
      * @param int $id User identifier
      * @author Benjamin BALET <benjamin.balet@gmail.com>
@@ -138,66 +116,6 @@ class materials extends CI_Controller {
         $this->session->set_flashdata('msg', 'The user was successfully deleted');
         redirect('users');
     }
-
-    /**
-     * Reset the password of a user
-     * Can be accessed by the user itself or by admin
-     * @param int $id User identifier
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function reset($id) {
-
-        //Test if user exists
-        $data['users_item'] = $this->users_model->getUsers($id);
-        if (empty($data['users_item'])) {
-          log_message('debug', '{controllers/users/reset} user not found');
-          redirect('notfound');
-      } else {
-          log_message('debug', 'Reset the password of user #' . $id);
-          $this->users_model->resetPassword($id, $this->input->post('password'));
-
-          //Send an e-mail to the user so as to inform that its password has been changed
-          $user = $this->users_model->getUsers($id);
-          $this->load->library('email');
-          $this->load->library('parser');
-          $data = array(
-              'Title' => 'Your password was reset',
-              'Firstname' => $user['firstname'],
-              'Lastname' => $user['lastname']
-          );
-          $message = $this->parser->parse('emails/password_reset', $data, TRUE);
-
-          if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
-              $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
-          } else {
-              $this->email->from('do.not@reply.me', 'LMS');
-          }
-          $this->email->to($user['email']);
-          $subject = $this->config->item('subject_prefix');
-          $this->email->subject($subject . 'Your password was reset');
-          $this->email->message($message);
-          log_message('debug', 'Sending the reset email');
-          if ($this->config->item('log_threshold') > 1) {
-            $this->email->send(FALSE);
-            $debug = $this->email->print_debugger(array('headers'));
-            log_message('debug', 'print_debugger = ' . $debug);
-        } else {
-            $this->email->send();
-        }
-
-          //Inform back the user by flash message
-        $this->session->set_flashdata('msg', 'The password was successfully reset');
-        if ($this->session->isAdmin || $this->session->isSuperAdmin) {
-            log_message('debug', 'Redirect to list of users page');
-            redirect('users');
-        }
-        else {
-            log_message('debug', 'Redirect to homepage');
-            redirect('home');
-        }
-    }
-}
-
     /**
      * Display the form / action Create a new user
      * @author Benjamin BALET <benjamin.balet@gmail.com>
@@ -262,39 +180,4 @@ class materials extends CI_Controller {
 }
 }
 
-    /**
-     * Form validation callback : prevent from login duplication
-     * @param string $login Login
-     * @return boolean TRUE if the field is valid, FALSE otherwise
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function checkLogin($login) {
-        if (!$this->users_model->isLoginAvailable($login)) {
-            $this->form_validation->set_message('checkLogin', lang('users_create_checkLogin'));
-            return FALSE;
-        } else {
-            return TRUE;
-        }
-    }
-
-    /**
-     * Ajax endpoint : check login duplication
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function checkLoginByAjax() {
-        $this->output->set_content_type('text/plain');
-        if ($this->users_model->isLoginAvailable($this->input->post('login'))) {
-            $this->output->set_output('true');
-        } else {
-            $this->output->set_output('false');
-        }
-    }
-
-    /**
-     * Action: export the list of all users into an Excel file
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
-    public function export() {
-        $this->load->view('users/export');
-    }
 }

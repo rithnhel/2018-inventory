@@ -1,14 +1,10 @@
 <?php
 /**
- * This view displays the list of users.
- * @copyright  Copyright (c) 2014-2018 Benjamin BALET
- * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
- * @link       https://github.com/bbalet/skeleton
- * @since      1.0.0
+ * This view displays the list of meterial.
  */
 ?>
 
-<div id="container">
+<div id="container" class="container">
 	<div class="row-fluid">
 		<div class="col-12">
             <h2><?php echo $title;?></h2>
@@ -115,7 +111,6 @@
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
-
 <script type="text/javascript">
 $(document).ready(function() {
     //Transform the HTML table in a fancy datatable
