@@ -8,15 +8,17 @@
  */
 ?>
 
-<div id="container">
+<div id="container" class="container">
 	<div class="row-fluid">
 		<div class="col-12">
+
 
                          <h2><?php echo $title;?></h2>
 
                          <?php echo $flashPartialView;?>
 
              <table id="users" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
+
                 <thead>
                     <tr>
                         <th class="text-right">ID</th>
@@ -27,9 +29,11 @@
                     <?php foreach ($users as $user):?>
                         <tr>
                             <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>"  class="text-right">
+
                                 <!-- <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a> -->
                                 <a href="#" class="confirm-edit" title="edit department"><i class="mdi mdi-pencil"></i></a>
                                 <a href="#" class="confirm-delete" title="Delete department"><i class="mdi mdi-delete"></i></a>
+
                                 <?php echo $user['id'] ?>&nbsp;
                             </td>
                             <td><!-- <?php echo $user['firstname']; ?> -->Wood</td>
@@ -58,6 +62,7 @@
                </div>          
                <!-- Modal body -->
                <div class="modal-body ">
+
                 <div class="form-inline">
                   <label class="control-label" for="firstname">Department</label>&nbsp;
                   <input type="text" class="form-control" name="firstname" id="firstname" required />
@@ -65,10 +70,13 @@
           </div> 
           <!-- Modal footer -->
           <div class="modal-footer">
+
            <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
        </div>
    </div>
+
+
 </div>
 </div>
 </div>
@@ -111,7 +119,9 @@
                 </div>
             </div>
             <div class="modal-footer">
+
                 <a href="#" class="btn btn-primary" data-dismiss="modal">OK</a>
+
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>
@@ -130,16 +140,16 @@
     });
     $("#users tbody").on('click', '.confirm-delete',  function(){
         var id = $(this).parent().data('id');
-        // var link = "<?php echo base_url();?>users/delete/" + id;
-        // $("#lnkDeleteUser").attr('href', link);
+
+
         $('#frmConfirmDelete').modal('show');
     });
 // edit
 $("#users tbody").on('click', '.confirm-edit',  function(){
     var id = $(this).parent().data('id');
-    // var link = "<?php echo base_url();?>users/delete/" + id;
-    // $("#lnkDeleteUser").attr('href', link);
+
     $('#frmConfirmEdit').modal('show');
 });
+
 });
 </script>
