@@ -1,5 +1,5 @@
-
-<div class="container">
+<br><br><br>
+<div class="container ">
     <div class="row">
         <div class="col-lg-3 col-md-3"></div>
         <div class="col-lg-6 col-md-6">
@@ -23,9 +23,9 @@
                             <input type="password" name="password" class="form-control" required>
                         </div>
                     </div>
-                    <a href="#">Forgot password?</a>
-                    <button class="btn btn-outline-info float-right" type="submit">Sign in</button>
+                    <button class="btn btn-info" type="submit">Sign in</button>&nbsp;&nbsp;&nbsp;&nbsp;
                     <?php echo validation_errors() ?>
+                    <a href="#">Forgot password?</a>
                 </form> 
             </div>
         </div>
