@@ -1,3 +1,9 @@
+<style>
+    body {
+        background: #f8f9fa;
+    }
+</style>
+
 <br><br><br>
 <div class="container ">
     <div class="row">

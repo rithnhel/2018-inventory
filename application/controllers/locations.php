@@ -13,23 +13,29 @@ if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
  * This controller serves the user management pages and tools.
  * The difference with HR Controller is that operations are technical (CRUD, etc.).
  */
-class materials extends CI_Controller {
+
+class locations extends CI_Controller {
+
+    /**
+     * Default constructor
+     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     */
     public function __construct() {
         parent::__construct();
         log_message('debug', 'URI=' . $this->uri->uri_string());
         $this->session->set_userdata('last_page', $this->uri->uri_string());
         if($this->session->loggedIn === TRUE) {
            // Allowed methods
-         if ($this->session->isAdmin || $this->session->isSuperAdmin) {
+           if ($this->session->isAdmin || $this->session->isSuperAdmin) {
              //User management is reserved to admins and super admins
+           } else {
+             redirect('errors/privileges');
+           }
          } else {
-           redirect('errors/privileges');
-       }
-   } else {
-     redirect('connection/login');
- }
- $this->load->model('users_model');
-}
+           redirect('connection/login');
+         }
+        $this->load->model('users_model');
+    }
 
     /**
      * Display the list of all users
@@ -38,20 +44,14 @@ class materials extends CI_Controller {
     public function index() {
         $this->load->helper('form');
         $data['users'] = $this->users_model->getUsersAndRoles();
-        $data['title'] = 'List of materials';
+        $data['title'] = 'List of locations';
         $data['activeLink'] = 'others';
         $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
         $this->load->view('templates/header', $data);
         $this->load->view('menu/index', $data);
-        $this->load->view('materials/index', $data);
+        $this->load->view('locations/index', $data);
         $this->load->view('templates/footer', $data);
     }
-
-    /**
-     * Display a for that allows updating a given user
-     * @param int $id User identifier
-     * @author Benjamin BALET <benjamin.balet@gmail.com>
-     */
     public function edit($id) {
         $this->load->helper('form');
         $this->load->library('form_validation');
@@ -63,12 +63,11 @@ class materials extends CI_Controller {
         $this->form_validation->set_rules('login', 'Login', 'required|strip_tags');
         $this->form_validation->set_rules('email', 'Email', 'required|strip_tags');
         $this->form_validation->set_rules('role[]', 'Role', 'required');
-
+        
         $data['users_item'] = $this->users_model->getUsers($id);
         if (empty($data['users_item'])) {
             redirect('notfound');
         }
-
         if ($this->form_validation->run() === FALSE) {
             $data['roles'] = $this->users_model->getRoles();
             $this->load->view('templates/header', $data);
@@ -103,6 +102,7 @@ class materials extends CI_Controller {
         $this->session->set_flashdata('msg', 'The user was successfully deleted');
         redirect('users');
     }
+
     /**
      * Display the form / action Create a new user
      * @author Benjamin BALET <benjamin.balet@gmail.com>
@@ -143,27 +143,27 @@ class materials extends CI_Controller {
             if ($this->config->item('from_mail') != FALSE && $this->config->item('from_name') != FALSE ) {
                 $this->email->from($this->config->item('from_mail'), $this->config->item('from_name'));
             } else {
-             $this->email->from('do.not@reply.me', 'Skeleton app');
-         }
-         $this->email->to($this->input->post('email'));
-         if ($this->config->item('subject_prefix') != FALSE) {
-            $subject = $this->config->item('subject_prefix');
-        } else {
-         $subject = '[Skeleton] ';
-     }
-     $this->email->subject($subject . 'Your account is created');
-     $this->email->message($message);
-     log_message('debug', 'Sending the user creation email');
-     if ($this->config->item('log_threshold') > 1) {
-      $this->email->send(FALSE);
-      $debug = $this->email->print_debugger(array('headers'));
-      log_message('debug', 'print_debugger = ' . $debug);
-  } else {
-      $this->email->send();
-  }
+               $this->email->from('do.not@reply.me', 'Skeleton app');
+            }
+            $this->email->to($this->input->post('email'));
+            if ($this->config->item('subject_prefix') != FALSE) {
+                $subject = $this->config->item('subject_prefix');
+            } else {
+               $subject = '[Skeleton] ';
+            }
+            $this->email->subject($subject . 'Your account is created');
+            $this->email->message($message);
+            log_message('debug', 'Sending the user creation email');
+            if ($this->config->item('log_threshold') > 1) {
+              $this->email->send(FALSE);
+              $debug = $this->email->print_debugger(array('headers'));
+              log_message('debug', 'print_debugger = ' . $debug);
+            } else {
+              $this->email->send();
+            }
 
-  $this->session->set_flashdata('msg', 'The user was successfully created');
-  redirect('users');
-}
-}
+            $this->session->set_flashdata('msg', 'The user was successfully created');
+            redirect('users');
+        }
+    }
 }

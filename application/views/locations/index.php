@@ -9,10 +9,8 @@
 ?>
 
 <div id="container" class="container">
-	<div class="row-fluid">
-		<div class="col-12">
-
-
+  <div class="row-fluid">
+    <div class="col-12">
      <h2><?php echo $title;?></h2>
 
      <?php echo $flashPartialView;?>
@@ -22,7 +20,7 @@
       <thead>
         <tr>
           <th class="text-right">ID</th>
-          <th>Departments</th>
+          <th>Location</th>
         </tr>
       </thead>
       <tbody>
@@ -31,12 +29,12 @@
             <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>"  class="text-right">
 
               <!-- <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a> -->
-              <a href="#" class="confirm-edit" title="edit department"><i class="mdi mdi-pencil"></i></a>
-              <a href="#" class="confirm-delete" title="Delete department"><i class="mdi mdi-delete"></i></a>
+              <a href="#" class="confirm-edit" title="edit location"><i class="mdi mdi-pencil"></i></a>
+              <a href="#" class="confirm-delete" title="Delete location"><i class="mdi mdi-delete"></i></a>
 
               <?php echo $user['id'] ?>&nbsp;
             </td>
-            <td><!-- <?php echo $user['firstname']; ?> -->Wood</td>
+            <td>B32</td>
           </tr>
         <?php endforeach ?>
       </tbody>
@@ -50,7 +48,7 @@
   <div class="row-fluid">
     <div class="col-12">
      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-       <i class="mdi mdi-plus-circle"></i>&nbsp;Create department
+       <i class="mdi mdi-plus-circle"></i>&nbsp;Create new location
      </button>
      <!-- The Modal -->
      <div class="modal fade" id="myModal">
@@ -58,14 +56,14 @@
          <div class="modal-content">
            <!-- Modal Header -->
            <div class="modal-header">
-             <h4 class="modal-title">Create department</h4>
+             <h4 class="modal-title">Create new location</h4>
              <button type="button" class="close" data-dismiss="modal">&times;</button>
            </div>          
            <!-- Modal body -->
            <div class="modal-body ">
 
             <div class="form-inline">
-              <label class="control-label" for="firstname">Department</label>&nbsp;
+              <label class="control-label" for="firstname">Location</label>&nbsp;
               <input type="text" class="form-control" name="firstname" id="firstname" required />
             </div>  
           </div> 
@@ -76,7 +74,6 @@
            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
          </div>
        </div>
-
      </div>
    </div>
  </div>
@@ -94,7 +91,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure that you want to delete this department?</p>
+        <p>Are you sure that you want to delete this location?</p>
       </div>
       <div class="modal-footer">
         <a href="#" class="btn btn-primary" data-dismiss="modal">Yes</a>
@@ -109,14 +106,14 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Edit Department</h5>
+        <h5 class="modal-title">Edit location</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-inline">
-          <label for="">Department</label> &nbsp;<input type="text" class="form-control">
+          <label for="">location</label> &nbsp;<input type="text" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
