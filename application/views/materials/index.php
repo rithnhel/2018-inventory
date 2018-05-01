@@ -28,7 +28,7 @@
             <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
             <?php echo $user['id'] ?>&nbsp;
         </td>
-        <td><!-- <?php echo $user['firstname']; ?> -->Wood</td>
+        <td><!-- <?php echo $user['firstname']; ?> --> Wood  </td>
     </tr>
 <?php endforeach ?>
 </tbody>
