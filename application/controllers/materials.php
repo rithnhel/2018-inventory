@@ -1,10 +1,12 @@
 <?php
 /**
+
  * This controller serves the user management pages and tools.
  * @copyright  Copyright (c) 2014-2017 Benjamin BALET
  * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
  * @link       https://github.com/bbalet/skeleton
  * @since      0.1.0
+
  */
 
 if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
@@ -14,6 +16,13 @@ if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
  * The difference with HR Controller is that operations are technical (CRUD, etc.).
  */
 class materials extends CI_Controller {
+
+
+    /**
+     * Default constructor
+     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     */
+
     public function __construct() {
         parent::__construct();
         log_message('debug', 'URI=' . $this->uri->uri_string());
@@ -48,6 +57,20 @@ class materials extends CI_Controller {
     }
 
     /**
+
+     * Set a user as active (TRUE) or inactive (FALSE)
+     * @param int $id User identifier
+     * @param bool $active active (TRUE) or inactive (FALSE)
+     * @author Benjamin BALET <benjamin.balet@gmail.com>
+     */
+    public function active($id, $active) {
+        $this->users_model->setActive($id, $active);
+        $this->session->set_flashdata('msg', 'The user was successfully modified');
+        redirect('users');
+    }
+
+    /**
+
      * Display a for that allows updating a given user
      * @param int $id User identifier
      * @author Benjamin BALET <benjamin.balet@gmail.com>

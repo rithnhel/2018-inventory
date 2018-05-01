@@ -1,10 +1,13 @@
 <?php
 /**
+
  * This view displays the list of materials.
+
  */
 ?>
 
 <div id="container" class="container">
+
   <div class="row-fluid">
     <div class="col-12">
 
@@ -23,6 +26,8 @@
       <?php foreach ($users as $user):?>
         <tr>
           <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>"  class="text-right">
+
+
             <!-- <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a> -->
             <a href="#" class="confirm-edit" title="edit user"><i class="mdi mdi-pencil"></i></a>
             <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
@@ -31,6 +36,7 @@
         <td><!-- <?php echo $user['firstname']; ?> -->Wood</td>
     </tr>
 <?php endforeach ?>
+
 </tbody>
 </table>
 </div>
@@ -109,11 +115,14 @@
 </div>
 </div>
 </div>
+
+
 </div>
 
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
+
 
 <script type="text/javascript">
   $(document).ready(function() {
@@ -141,5 +150,6 @@ $("#users tbody").on('click', '.reset-password',  function(){
   $("#formResetPwd").prop("action", link);
   $('#frmResetPwd').modal('show');
 });
+
 });
 </script>
