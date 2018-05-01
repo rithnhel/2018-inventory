@@ -33,8 +33,8 @@
                         ?>
                         <tr>
                             <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>"  class="text-right">
-                                <!-- <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a> -->
-
+                                <a href="#" class="confirm-edit" title="edit user"><i class="mdi mdi-pencil"></i></a>
+                                <a href="#" class="confirm-delete" title="Delete user"><i class="mdi mdi-delete"></i></a>
                                 <?php echo $user['id'] ?>&nbsp;
                             </td>
                             <td><!-- <?php //echo $user['firstname']; ?> -->Garden</td>
@@ -56,6 +56,8 @@
             </div>
         </div>
     </div>
+    <script>
+        
         //Transform the HTML table in a fancy datatable
         $('#users').dataTable({
             stateSave: true,
@@ -73,4 +75,5 @@
             // $("#lnkDeleteUser").attr('href', link);
             $('#frmConfirmEdit').modal('show');
         });
+    </script>
 
