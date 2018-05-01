@@ -51,7 +51,7 @@ class items extends CI_Controller {
         $this->load->view('items/index', $data);
         $this->load->view('templates/footer', $data);
     }
-
+ 
     /**
      * Set a user as active (TRUE) or inactive (FALSE)
      * @param int $id User identifier
