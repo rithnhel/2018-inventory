@@ -6,13 +6,14 @@
  * @link       https://github.com/bbalet/skeleton
  * @since      0.1.0
  */
+// this is owners layout
 if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
 
 /**
  * This controller serves the user management pages and tools.
  * The difference with HR Controller is that operations are technical (CRUD, etc.).
  */
-class Departments extends CI_Controller {
+class Owner extends CI_Controller {
 
     /**
      * Default constructor
@@ -42,12 +43,12 @@ class Departments extends CI_Controller {
     public function index() {
         $this->load->helper('form');
         $data['users'] = $this->users_model->getUsersAndRoles();
-        $data['title'] = 'List of departments';
-        $data['activeLink'] = 'others';
+        $data['title'] = 'List of owners';
+        $data['activeLink'] = 'owners';
         $data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
         $this->load->view('templates/header', $data);
         $this->load->view('menu/index', $data);
-        $this->load->view('departments/index', $data);
+        $this->load->view('owners/index', $data);
         $this->load->view('templates/footer', $data);
     }
 
@@ -71,8 +72,8 @@ class Departments extends CI_Controller {
     public function edit($id) {
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $data['title'] = 'Edit a department';
-        $data['activeLink'] = 'departments';
+        $data['title'] = 'Edit a owners';
+        $data['activeLink'] = 'owners';
 
         $this->form_validation->set_rules('firstname', 'Firstname', 'required|strip_tags');
         // $this->form_validation->set_rules('lastname', 'Lastname', 'required|strip_tags');
@@ -89,7 +90,7 @@ class Departments extends CI_Controller {
             $data['roles'] = $this->users_model->getRoles();
             $this->load->view('templates/header', $data);
             $this->load->view('menu/index', $data);
-            $this->load->view('departments/edit', $data);
+            $this->load->view('owners/edit', $data);
             $this->load->view('templates/footer');
         } else {
             $this->users_model->updateUsers();

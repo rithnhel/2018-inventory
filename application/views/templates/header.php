@@ -31,10 +31,10 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
   #logo-menu {
     max-width: 130px;
   }
-  .menu {
+  /*.menu {
     position: relative;
-    left: 48%;
-  }
+    left: 50%;
+  }*/
   .form {
     position: relative;
     left: 53px;
@@ -47,4 +47,4 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
     }*/
   </style>
 </head>
-<body class="body-login">
+<body class="bg-light">

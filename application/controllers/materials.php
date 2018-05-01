@@ -1,6 +1,12 @@
 <?php
 /**
-*edit by bunla.rath
+
+ * This controller serves the user management pages and tools.
+ * @copyright  Copyright (c) 2014-2017 Benjamin BALET
+ * @license    http://opensource.org/licenses/AGPL-3.0 AGPL-3.0
+ * @link       https://github.com/bbalet/skeleton
+ * @since      0.1.0
+
  */
 
 if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
@@ -11,10 +17,12 @@ if (!defined('BASEPATH')) { exit('No direct script access allowed'); }
  */
 class materials extends CI_Controller {
 
+
     /**
      * Default constructor
      * @author Benjamin BALET <benjamin.balet@gmail.com>
      */
+
     public function __construct() {
         parent::__construct();
         log_message('debug', 'URI=' . $this->uri->uri_string());
@@ -49,6 +57,7 @@ class materials extends CI_Controller {
     }
 
     /**
+
      * Set a user as active (TRUE) or inactive (FALSE)
      * @param int $id User identifier
      * @param bool $active active (TRUE) or inactive (FALSE)
@@ -61,6 +70,7 @@ class materials extends CI_Controller {
     }
 
     /**
+
      * Display a for that allows updating a given user
      * @param int $id User identifier
      * @author Benjamin BALET <benjamin.balet@gmail.com>
@@ -179,5 +189,4 @@ class materials extends CI_Controller {
   redirect('users');
 }
 }
-
 }
