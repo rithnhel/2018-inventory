@@ -24,6 +24,7 @@ class Connection extends CI_Controller {
 		if ($this->form_validation->run() === FALSE) {
 			log_message('debug', 'Let\'s display the login form');
 			$data['title'] = 'Login';
+			$data['title'] = 'Login';
 			$data['flashPartialView'] = $this->load->view('templates/flash', $data, TRUE);
 			$this->load->view('templates/header', $data);
 			$this->load->view('login/login', $data);
