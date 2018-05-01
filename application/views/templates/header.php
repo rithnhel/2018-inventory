@@ -47,4 +47,4 @@ $langCode= (isset($langCode)) ? $langCode :  "en";
     }*/
   </style>
 </head>
-<body class="bg-light">
+<body>

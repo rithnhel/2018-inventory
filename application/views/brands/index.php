@@ -7,10 +7,11 @@
  * @since      1.0.0
  */
 ?>
-<!-- this is owner layout -->
+
 <div id="container" class="container">
 	<div class="row-fluid">
-		<div class="col-12">
+    <!-- <div class="col-2"></div> -->
+    <div class="col-12">
 
       <h2><?php echo $title;?></h2>
 
@@ -19,20 +20,29 @@
       <table id="users" cellpadding="0" cellspacing="0" class="table table-striped table-bordered" width="100%">
         <thead>
           <tr>
-            <th class="text-right">ID</th>
-            <th>Owners</th>
+            <th>ID</th>
+            <th>Brands</th>
+            <th>Models</th>
+
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($users as $user):?>
+
+          <?php 
+                    // $id = 1;
+          foreach ($users as $user):
+            ?>
             <tr>
               <td data-order="<?php echo $user['id']; ?>" data-id="<?php echo $user['id'];?>"  class="text-right">
-                <!-- <a href="<?php echo base_url();?>users/edit/<?php echo $user['id'] ?>" title="Edit user"><i class="mdi mdi-pencil"></i></a> -->
-                <a href="#" class="confirm-edit" title="edit owner"><i class="mdi mdi-pencil"></i></a>
-                <a href="#" class="confirm-delete" title="Delete owner"><i class="mdi mdi-delete"></i></a>
+                <a href="#" class="confirm-edit" title="edit brand"><i class="mdi mdi-pencil"></i></a>
+                <a href="#" class="confirm-delete" title="Delete brand"><i class="mdi mdi-delete"></i></a>
                 <?php echo $user['id'] ?>&nbsp;
               </td>
-              <td><!-- <?php echo $user['firstname']; ?> -->ERO Team</td>
+              <td><!-- <?php //echo $user['firstname']; ?> -->Lenovo</td>
+              <td>
+                <a href="<?php echo base_url(); ?>models" title="List models"><i class="mdi mdi-format-list-bulleted"></i></a>
+                3 model(s)
+              </td>
             </tr>
           <?php endforeach ?>
         </tbody>
@@ -40,27 +50,27 @@
     </div>
   </div>
   <div class="row-fluid"><div class="col-12">&nbsp;</div></div>
-  <!-- create new owner -->
+  <!-- create new department -->
   <div class="container">
     <div class="row-fluid">
       <div class="col-12">
-       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-         <i class="mdi mdi-plus-circle"></i>&nbsp;Create owner
-       </button>
-       <!-- The Modal -->
-       <div class="modal fade" id="myModal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+          <i class="mdi mdi-plus-circle"></i>&nbsp;Create brand
+        </button>
+        <!-- The Modal -->
+        <div class="modal fade" id="myModal">
          <div class="modal-dialog modal-dialog-centered">
            <div class="modal-content">
              <!-- Modal Header -->
              <div class="modal-header">
-               <h4 class="modal-title">Create owner</h4>
-               <button type="button" class="close" data-dismiss="modal">&times;</button>
-             </div>          
-             <!-- Modal body -->
-             <div class="modal-body ">
+              <h4 class="modal-title">Create brand</h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>          
+            <!-- Modal body -->
+            <div class="modal-body ">
               <div class="form-inline">
-                <label class="control-label" for="firstname">Owner</label>&nbsp;
-                <input type="text" class="form-control" name="firstname" id="firstname" required />
+                <label class="control-label" for="brand">Brand</label>&nbsp;
+                <input type="text" class="form-control" name="brand" id="brand" required />
               </div>  
             </div> 
             <!-- Modal footer -->
@@ -85,10 +95,10 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Are you sure that you want to delete this owner?</p>
+        <p>Are you sure that you want to delete this brand?</p>
       </div>
       <div class="modal-footer">
-        <a href="#" class="btn btn-primary" data-dismiss="modal">Yes</a>
+        <a class="btn btn-primary" data-dismiss="modal" >Yes</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
       </div>
     </div>
@@ -99,14 +109,14 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Edit owner</h5>
+        <h5 class="modal-title">Edit brand</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <div class="form-inline">
-          <label for="">Owner</label> &nbsp;<input type="text" class="form-control">
+          <label for="">Brand</label> &nbsp;<input type="text" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
@@ -116,36 +126,29 @@
     </div>
   </div>
 </div>
-
+<!-- link bootstrap4 and javaScipt -->
 <link href="<?php echo base_url();?>assets/DataTable/DataTables-1.10.16/css/dataTables.bootstrap4.min.css" rel="stylesheet">
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url();?>assets/DataTable//DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 
-<script type="text/javascript">
+<script>
   $(document).ready(function() {
-    //Transform the HTML table in a fancy datatable
-    $('#users').dataTable({
-      stateSave: true,
-    });
-    $("#users tbody").on('click', '.confirm-delete',  function(){
-      var id = $(this).parent().data('id');
-                // var link = "<?php echo base_url();?>users/delete/" + id;
-                // $("#lnkDeleteUser").attr('href', link);
-                $('#frmConfirmDelete').modal('show');
-              });
-// edit
-$("#users tbody").on('click', '.confirm-edit',  function(){
-  var id = $(this).parent().data('id');
-  var link = "<?php echo base_url();?>users/delete/" + id;
-  $("#lnkDeleteUser").attr('href', link);
-  $('#frmConfirmEdit').modal('show');
-});
+        //Transform the HTML table in a fancy datatable
+        $('#users').dataTable({
+          stateSave: true,
+        });
+        $("#users tbody").on('click', '.confirm-delete',  function(){
+          var id = $(this).parent().data('id');
+            // var link = "<?php echo base_url();?>users/delete/" + id;
+            // $("#lnkDeleteUser").attr('href', link);
+            $('#frmConfirmDelete').modal('show');
+          });
+        // edit
+        $("#users tbody").on('click', '.confirm-edit',  function(){
+          var id = $(this).parent().data('id');
+          $('#frmConfirmEdit').modal('show');
+        });
 
-$("#users tbody").on('click', '.reset-password',  function(){
-  var id = $(this).parent().data('id');
-  var link = "<?php echo base_url();?>users/reset/" + id;
-  $("#formResetPwd").prop("action", link);
-  $('#frmResetPwd').modal('show');
-});
-});
-</script>
+      });
+    </script>
+
