@@ -11,6 +11,7 @@
 <div id="container">
 	<div class="row-fluid">
 		<div class="col-12">
+        <div class="table-responsive">
 
 <h2><?php echo $title;?></h2>
 
@@ -50,6 +51,7 @@
 <?php endforeach ?>
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 
